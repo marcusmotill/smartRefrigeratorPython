@@ -18,6 +18,11 @@ from parse_rest.datatypes import Object
 myClassName = "Refrigerator"
 Refrigerator = Object.factory(myClassName)
 
+all_items = Refrigerator.Query.all()
+
+for item in all_items:
+	item.delete()
+
 for code in codes:
 	print('QR code: %s' % code)
 	refrigerator = Refrigerator(QRCode=code)

@@ -21,9 +21,10 @@ Refrigerator = Object.factory(myClassName)
 all_items = Refrigerator.Query.all()
 
 for item in all_items:
-	item.delete()
+	if item.isCustom == False:
+		item.delete()
 
 for code in codes:
 	print('QR code: %s' % code)
-	refrigerator = Refrigerator(QRCode=code)
+	refrigerator = Refrigerator(QRCode=code, isCustom=False)
 	refrigerator.save()
